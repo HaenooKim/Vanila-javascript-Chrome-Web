@@ -8,7 +8,7 @@ function getClock() {
   const date = new Date();
   const hours = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
   const minutes = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
-  const seconds = String(date.getSeconds().padStart(2, "0"));
+  const seconds = String(date.getSeconds()).padStart(2, "0");
 
   //날짜는 number타입이라서 String으로 형변환. (ctrl누른 상태에서 getSeconds에 커서 가져다 대면 type을 알 수 있음)
   //padStart : 첫번째 인자에는 String의 총 길이, 두번째 인자는 '앞에' 채워질 String을 입력한다.
