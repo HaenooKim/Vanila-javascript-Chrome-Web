@@ -27,3 +27,4 @@ if (savedUserName===null) {
   greeting.classList.remove(HIDDEN_CLASSNAME);
   greeting.innerHTML=`Hello ${savedUserName}`;
 }
+
