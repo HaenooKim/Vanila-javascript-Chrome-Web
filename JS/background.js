@@ -7,8 +7,8 @@ const bgImage = document.createElement("img");
 
 bgImage.src = `img/${chosenImage}`;
 
-//appendChild : html에 추가하는 것
+//appendChild : html끝에 추가하는 것
+//prepend : html 맨앞에 추가하는 것
 document.body.appendChild(bgImage);
-
 
 console.log(bgImage);
