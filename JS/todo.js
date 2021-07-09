@@ -18,24 +18,25 @@ function saveToDos() {
 }
 
 function deleteToDo(event) {
-  deleteTarget = event.target.parentElement.innerText.slice(0, -1); //맨 뒤에 x가 붙어서 slice를 이용해 제거함.
   const li = event.target.parentElement;
-  li.remove(); //li element 삭제
-  for (let i=0; i<toDos.length; i++) {
-    if (toDos[i] === deleteTarget) { //삭제할 값을 Search
+  const deleteTargetId = parseInt(event.target.parentElement.id)
+  for(let i=0; i<toDos.length; i++) {
+    if (toDos[i].id === deleteTargetId) {
       toDos.splice(i, 1);
       saveToDos();
     }
   }
+  li.remove(); //li element 삭제
 }
 
 function paintToDo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
   const button = document.createElement("button");
   li.appendChild(span);
   li.appendChild(button);
-  span.innerHTML=newTodo;
+  span.innerHTML=newTodo.text;
   button.innerHTML="x";
   button.addEventListener("click", deleteToDo);
   toDoList.appendChild(li);
@@ -46,8 +47,13 @@ function handleToDoSubmit(event) {
   const newTodo = toDoInput.value;//list 입력을 받아놓고
   toDoInput.value=""; //엔터를 누르면 값이 없어지도록 한다.
   //console.log(toDoInput.value);
-  toDos.push(newTodo);//toDos배열에 값 저장
-  paintToDo(newTodo);
+  const newTodoObj = {
+    text : newTodo,
+    id : Date.now() //아이디를 랜덤값으로 주기위해 Date.now()를 사용함.
+  };
+
+  toDos.push(newTodoObj);//toDos배열에 값 저장
+  paintToDo(newTodoObj); //todo obj를 넘겨줌
   saveToDos();
 }
 
@@ -57,6 +63,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if (saveToDos != null) {
   const parsedToDos = JSON.parse(savedToDos);
-  console.log(parsedToDos);
+  //console.log(parsedToDos);
   parsedToDos.forEach(paintToDo); //paintToDo 에 인자값을 알아서 전달해줌
 }
