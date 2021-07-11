@@ -57,9 +57,16 @@ function handleToDoSubmit(event) {
   saveToDos();
 }
 
-toDoForm.addEventListener("submit", handleToDoSubmit);
+
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
+
+const userName = localStorage.getItem("userName");
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
+
+
+
 
 if (saveToDos != null) {
   const parsedToDos = JSON.parse(savedToDos);

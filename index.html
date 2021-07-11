@@ -10,25 +10,27 @@
 </head>
 
 <body>
-  <!--clock-->
-  <h2 id="clock">00:00:00</h2>
-  <!--greeting-->
-  <h1 id="greeting" class="hidden"></h1>
-  <form id="login-form" class="hidden">
-    <input required maxlength="15" type="text" placeholder="What is your name?" />
-    <button>Log In</button>
-  </form>
-  <!--to do list-->
-  <form id="todo-form">
-    <input type="text" placeholder="Write a To Do and Press Enter" required>
-  </form>
-  <ul id="todo-list">
+  <div class="container">
+    <!--clock-->
+    <h2 id="clock">00:00:00</h2>
+    <!--greeting-->
+    <h1 id="greeting" class="hidden"></h1>
+    <form id="login-form" class="hidden">
+      <input required maxlength="15" type="text" placeholder="What is your name?" />
+      <br><button class="login-btn">Log In</button>
+    </form>
+    <!--to do list-->
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To Do and Press Enter" required>
+    </form>
+    <ul id="todo-list">
 
-  </ul>
-  <!--quotes-->
-  <div id="quotes">
-    <span></span><br>
-    <span></span>
+    </ul>
+    <!--quotes-->
+    <div id="quotes">
+      <span></span><br>
+      <span></span>
+    </div>
   </div>
 
 
@@ -37,6 +39,7 @@
   <script src="./JS/quotes.js"></script>
   <script src="./JS/background.js"></script>
   <script src="./JS/todo.js"></script>
+  <script src="./JS/weather.js"></script>
 </body>
 
 </html>
